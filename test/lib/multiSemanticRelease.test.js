@@ -42,12 +42,14 @@ describe("multiSemanticRelease()", () => {
 		// Doesn't include plugins that actually publish.
 		const multiSemanticRelease = require("../../");
 		const result = await multiSemanticRelease(
-			[
-				`packages/a/package.json`,
-				`packages/b/package.json`,
-				`packages/c/package.json`,
-				`packages/d/package.json`,
-			],
+			{
+				paths: [
+					`packages/a/package.json`,
+					`packages/b/package.json`,
+					`packages/c/package.json`,
+					`packages/d/package.json`,
+				],
+			},
 			{},
 			{ cwd, stdout, stderr }
 		);
@@ -162,12 +164,14 @@ describe("multiSemanticRelease()", () => {
 		// Doesn't include plugins that actually publish.
 		const multiSemanticRelease = require("../../");
 		const result = await multiSemanticRelease(
-			[
-				`packages/a/package.json`,
-				`packages/b/package.json`,
-				`packages/c/package.json`,
-				`packages/d/package.json`,
-			],
+			{
+				paths: [
+					`packages/a/package.json`,
+					`packages/b/package.json`,
+					`packages/c/package.json`,
+					`packages/d/package.json`,
+				],
+			},
 			{
 				branches: [{ name: "master", prerelease: "dev" }, { name: "release" }],
 			},
@@ -289,7 +293,7 @@ describe("multiSemanticRelease()", () => {
 		// Doesn't include plugins that actually publish.
 		const multiSemanticRelease = require("../../");
 		let result = await multiSemanticRelease(
-			packages.map((folder) => `${folder}package.json`),
+			{ paths: packages.map((folder) => `${folder}package.json`) },
 			{
 				branches: [{ name: "master", prerelease: "dev" }, { name: "release" }],
 			},
@@ -308,7 +312,7 @@ describe("multiSemanticRelease()", () => {
 		// Call multiSemanticRelease() for a second release
 		// Doesn't include plugins that actually publish.
 		result = await multiSemanticRelease(
-			packages.map((folder) => `${folder}package.json`),
+			{ paths: packages.map((folder) => `${folder}package.json`) },
 			{
 				branches: [{ name: "master", prerelease: "dev" }, { name: "release" }],
 			},
@@ -374,7 +378,7 @@ describe("multiSemanticRelease()", () => {
 		// Doesn't include plugins that actually publish.
 		const multiSemanticRelease = require("../../");
 		let result = await multiSemanticRelease(
-			packages.map((folder) => `${folder}package.json`),
+			{ paths: packages.map((folder) => `${folder}package.json`) },
 			{
 				branches: [{ name: "master" }, { name: "release" }],
 			},
@@ -394,7 +398,7 @@ describe("multiSemanticRelease()", () => {
 		// Doesn't include plugins that actually publish.
 		// Change the master branch from release to prerelease to test bumping.
 		result = await multiSemanticRelease(
-			packages.map((folder) => `${folder}package.json`),
+			{ paths: packages.map((folder) => `${folder}package.json`) },
 			{
 				branches: [{ name: "master", prerelease: "beta" }, { name: "release" }],
 			},
@@ -466,7 +470,7 @@ describe("multiSemanticRelease()", () => {
 		// Doesn't include plugins that actually publish.
 		const multiSemanticRelease = require("../../");
 		let result = await multiSemanticRelease(
-			packages.map((folder) => `${folder}package.json`),
+			{ paths: packages.map((folder) => `${folder}package.json`) },
 			{
 				branches: [{ name: "master", prerelease: "dev" }, { name: "release" }],
 			},
@@ -485,7 +489,7 @@ describe("multiSemanticRelease()", () => {
 		// Call multiSemanticRelease() for a second release
 		// Doesn't include plugins that actually publish.
 		result = await multiSemanticRelease(
-			packages.map((folder) => `${folder}package.json`),
+			{ paths: packages.map((folder) => `${folder}package.json`) },
 			{
 				branches: [{ name: "master", prerelease: "dev" }, { name: "release" }],
 			},
@@ -635,12 +639,14 @@ describe("multiSemanticRelease()", () => {
 		// Doesn't include plugins that actually publish.
 		const multiSemanticRelease = require("../../");
 		const result = await multiSemanticRelease(
-			[
-				`packages/c/package.json`,
-				`packages/a/package.json`,
-				`packages/d/package.json`,
-				`packages/b/package.json`,
-			],
+			{
+				paths: [
+					`packages/c/package.json`,
+					`packages/a/package.json`,
+					`packages/d/package.json`,
+					`packages/b/package.json`,
+				],
+			},
 			{},
 			{ cwd, stdout, stderr }
 		);
@@ -690,12 +696,14 @@ describe("multiSemanticRelease()", () => {
 		// Doesn't include plugins that actually publish.
 		const multiSemanticRelease = require("../../");
 		const result = await multiSemanticRelease(
-			[
-				`packages/c/package.json`,
-				`packages/d/package.json`,
-				`packages/b/package.json`,
-				`packages/a/package.json`,
-			],
+			{
+				paths: [
+					`packages/c/package.json`,
+					`packages/d/package.json`,
+					`packages/b/package.json`,
+					`packages/a/package.json`,
+				],
+			},
 			{},
 			{ cwd, stdout, stderr },
 			{ deps: {}, dryRun: false }
@@ -826,7 +834,7 @@ describe("multiSemanticRelease()", () => {
 		// Doesn't include plugins that actually publish.
 		const multiSemanticRelease = require("../../");
 		const result = await multiSemanticRelease(
-			[`packages/c/package.json`, `packages/d/package.json`],
+			{ paths: [`packages/c/package.json`, `packages/d/package.json`] },
 			{
 				plugins: [
 					{
@@ -929,7 +937,7 @@ describe("multiSemanticRelease()", () => {
 		// Doesn't include plugins that actually publish.
 		const multiSemanticRelease = require("../../");
 		const result = await multiSemanticRelease(
-			[`packages/c/package.json`, `packages/d/package.json`],
+			{ paths: [`packages/c/package.json`, `packages/d/package.json`] },
 			{},
 			{ cwd, stdout, stderr },
 			{ deps: {}, dryRun: false, sequentialPrepare: true }
@@ -992,12 +1000,14 @@ describe("multiSemanticRelease()", () => {
 		// Doesn't include plugins that actually publish.
 		const multiSemanticRelease = require("../../");
 		const result = await multiSemanticRelease(
-			[
-				`packages/c/package.json`,
-				`packages/d/package.json`,
-				`packages/b/package.json`,
-				`packages/a/package.json`,
-			],
+			{
+				paths: [
+					`packages/c/package.json`,
+					`packages/d/package.json`,
+					`packages/b/package.json`,
+					`packages/a/package.json`,
+				],
+			},
 			{},
 			{ cwd, stdout, stderr }
 		);
@@ -1040,7 +1050,7 @@ describe("multiSemanticRelease()", () => {
 		try {
 			const multiSemanticRelease = require("../../");
 			const result = await multiSemanticRelease(
-				[`packages/a/package.json`, `packages/c/package.json`],
+				{ paths: [`packages/a/package.json`, `packages/c/package.json`] },
 				{},
 				{ cwd, stdout, stderr }
 			);
@@ -1077,7 +1087,7 @@ describe("multiSemanticRelease()", () => {
 		// Call multiSemanticRelease()
 		const multiSemanticRelease = require("../../");
 		const result = await multiSemanticRelease(
-			[`packages/d/package.json`],
+			{ paths: [`packages/d/package.json`] },
 			{
 				// Override to add our own plugins.
 				plugins: ["@semantic-release/release-notes-generator", plugin],
@@ -1124,12 +1134,14 @@ describe("multiSemanticRelease()", () => {
 		// Include "@semantic-release/git" for made the git head changed
 		const multiSemanticRelease = require("../../");
 		const result = await multiSemanticRelease(
-			[
-				`packages/c/package.json`,
-				`packages/d/package.json`,
-				`packages/b/package.json`,
-				`packages/a/package.json`,
-			],
+			{
+				paths: [
+					`packages/c/package.json`,
+					`packages/d/package.json`,
+					`packages/b/package.json`,
+					`packages/a/package.json`,
+				],
+			},
 			{
 				plugins: [
 					"@semantic-release/release-notes-generator",
@@ -1164,7 +1176,7 @@ describe("multiSemanticRelease()", () => {
 		// Doesn't include plugins that actually publish.
 		try {
 			await multiSemanticRelease(
-				[`packages/d/package.json`, `packages/a/package.json`],
+				{ paths: [`packages/d/package.json`, `packages/a/package.json`] },
 				{
 					// Override to add our own erroring plugin.
 					plugins: [
@@ -1201,50 +1213,50 @@ describe("multiSemanticRelease()", () => {
 		await expect(multiSemanticRelease()).rejects.toBeInstanceOf(TypeError);
 		await expect(multiSemanticRelease(undefined)).rejects.toBeInstanceOf(TypeError);
 		await expect(multiSemanticRelease(null)).rejects.toBeInstanceOf(TypeError);
-		await expect(multiSemanticRelease([1, 2, 3])).rejects.toBeInstanceOf(TypeError);
-		await expect(multiSemanticRelease([true, false])).rejects.toBeInstanceOf(TypeError);
-		await expect(multiSemanticRelease([undefined])).rejects.toBeInstanceOf(TypeError);
-		await expect(multiSemanticRelease([null])).rejects.toBeInstanceOf(TypeError);
+		await expect(multiSemanticRelease({ paths: [1, 2, 3] })).rejects.toBeInstanceOf(TypeError);
+		await expect(multiSemanticRelease({ paths: [true, false] })).rejects.toBeInstanceOf(TypeError);
+		await expect(multiSemanticRelease({ paths: [undefined] })).rejects.toBeInstanceOf(TypeError);
+		await expect(multiSemanticRelease({ paths: [null] })).rejects.toBeInstanceOf(TypeError);
 	});
 	test("ReferenceError if paths points to a non-file", async () => {
 		const multiSemanticRelease = require("../../");
 		const stdout = new WritableStreamBuffer(); // Blackhole the output so it doesn't clutter Jest.
-		const r1 = multiSemanticRelease(["test/fixtures/DOESNOTEXIST.json"], {}, { stdout });
+		const r1 = multiSemanticRelease({ paths: ["test/fixtures/DOESNOTEXIST.json"] }, {}, { stdout });
 		await expect(r1).rejects.toBeInstanceOf(ReferenceError); // Path that does not exist.
-		const r2 = multiSemanticRelease(["test/fixtures/DOESNOTEXIST/"], {}, { stdout });
+		const r2 = multiSemanticRelease({ paths: ["test/fixtures/DOESNOTEXIST/"] }, {}, { stdout });
 		await expect(r2).rejects.toBeInstanceOf(ReferenceError); // Path that does not exist.
-		const r3 = multiSemanticRelease(["test/fixtures/"], {}, { stdout });
+		const r3 = multiSemanticRelease({ paths: ["test/fixtures/"] }, {}, { stdout });
 		await expect(r3).rejects.toBeInstanceOf(ReferenceError); // Directory that exists.
 	});
 	test("SyntaxError if paths points to package.json with bad syntax", async () => {
 		const multiSemanticRelease = require("../../");
 		const stdout = new WritableStreamBuffer(); // Blackhole the output so it doesn't clutter Jest.
-		const r1 = multiSemanticRelease(["test/fixtures/invalidPackage.json"], {}, { stdout });
+		const r1 = multiSemanticRelease({ paths: ["test/fixtures/invalidPackage.json"] }, {}, { stdout });
 		await expect(r1).rejects.toBeInstanceOf(SyntaxError);
 		await expect(r1).rejects.toMatchObject({
 			message: expect.stringMatching("could not be parsed"),
 		});
-		const r2 = multiSemanticRelease(["test/fixtures/numberPackage.json"], {}, { stdout });
+		const r2 = multiSemanticRelease({ paths: ["test/fixtures/numberPackage.json"] }, {}, { stdout });
 		await expect(r2).rejects.toBeInstanceOf(SyntaxError);
 		await expect(r2).rejects.toMatchObject({
 			message: expect.stringMatching("not an object"),
 		});
-		const r3 = multiSemanticRelease(["test/fixtures/badNamePackage.json"], {}, { stdout });
+		const r3 = multiSemanticRelease({ paths: ["test/fixtures/badNamePackage.json"] }, {}, { stdout });
 		await expect(r3).rejects.toBeInstanceOf(SyntaxError);
 		await expect(r3).rejects.toMatchObject({
 			message: expect.stringMatching("Package name must be non-empty string"),
 		});
-		const r4 = multiSemanticRelease(["test/fixtures/badDepsPackage.json"], {}, { stdout });
+		const r4 = multiSemanticRelease({ paths: ["test/fixtures/badDepsPackage.json"] }, {}, { stdout });
 		await expect(r4).rejects.toBeInstanceOf(SyntaxError);
 		await expect(r4).rejects.toMatchObject({
 			message: expect.stringMatching("Package dependencies must be object"),
 		});
-		const r5 = multiSemanticRelease(["test/fixtures/badDevDepsPackage.json"], {}, { stdout });
+		const r5 = multiSemanticRelease({ paths: ["test/fixtures/badDevDepsPackage.json"] }, {}, { stdout });
 		await expect(r5).rejects.toBeInstanceOf(SyntaxError);
 		await expect(r5).rejects.toMatchObject({
 			message: expect.stringMatching("Package devDependencies must be object"),
 		});
-		const r6 = multiSemanticRelease(["test/fixtures/badPeerDepsPackage.json"], {}, { stdout });
+		const r6 = multiSemanticRelease({ paths: ["test/fixtures/badPeerDepsPackage.json"] }, {}, { stdout });
 		await expect(r6).rejects.toBeInstanceOf(SyntaxError);
 		await expect(r6).rejects.toMatchObject({
 			message: expect.stringMatching("Package peerDependencies must be object"),
@@ -1267,12 +1279,14 @@ describe("multiSemanticRelease()", () => {
 		// Doesn't include plugins that actually publish.
 		const multiSemanticRelease = require("../../");
 		const result = multiSemanticRelease(
-			[
-				`packages/a/package.json`,
-				`packages/b/package.json`,
-				`packages/c/package.json`,
-				`packages/d/package.json`,
-			],
+			{
+				paths: [
+					`packages/a/package.json`,
+					`packages/b/package.json`,
+					`packages/c/package.json`,
+					`packages/d/package.json`,
+				],
+			},
 			{},
 			{ cwd, stdout, stderr },
 			{ sequentialPrepare: true, deps: {} }

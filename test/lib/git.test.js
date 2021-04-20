@@ -21,7 +21,7 @@ test("Fetch all tags on master after two package release", async () => {
 	// Doesn't include plugins that actually publish.
 	const multiSemanticRelease = require("../../");
 	await multiSemanticRelease(
-		packages.map((folder) => `${folder}package.json`),
+		{ paths: packages.map((folder) => `${folder}package.json`) },
 		{
 			branches: [{ name: "master" }, { name: "release" }],
 		},
@@ -49,7 +49,7 @@ test("Fetch only prerelease tags", async () => {
 	// Doesn't include plugins that actually publish.
 	const multiSemanticRelease = require("../../");
 	await multiSemanticRelease(
-		packages.map((folder) => `${folder}package.json`),
+		{ paths: packages.map((folder) => `${folder}package.json`) },
 		{
 			branches: [{ name: "master" }, { name: "release" }],
 		},
@@ -69,7 +69,7 @@ test("Fetch only prerelease tags", async () => {
 	// Doesn't include plugins that actually publish.
 	// Change the master branch from release to prerelease to test bumping.
 	await multiSemanticRelease(
-		packages.map((folder) => `${folder}package.json`),
+		{ paths: packages.map((folder) => `${folder}package.json`) },
 		{
 			branches: [{ name: "master", prerelease: "beta" }, { name: "release" }],
 		},
