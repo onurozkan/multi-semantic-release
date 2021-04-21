@@ -1,3 +1,10 @@
+## [3.15.1](https://github.com/creaworks-labs/multi-semantic-release/compare/v3.15.0...v3.15.1) (2021-04-21)
+
+
+### Bug Fixes
+
+* missing scope ([5abae96](https://github.com/creaworks-labs/multi-semantic-release/commit/5abae9624f7446dccc1085a9f82a87c622490133))
+
 # [3.15.0](https://github.com/creaworks-labs/multi-semantic-release/compare/v3.14.2...v3.15.0) (2021-04-21)
 
 
