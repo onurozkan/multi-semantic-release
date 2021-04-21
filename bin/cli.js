@@ -17,6 +17,7 @@ const cli = meow(
     --deps.bump Define deps version updating rule. Allowed: override, satisfy, inherit.
     --deps.release Define release type for dependent package if any of its deps changes. Supported values: patch, minor, major, inherit.
     --ignore-packages  Packages' list to be ignored on bumping process
+		--only-affected Releases the affected packages. Available for Nx.dev only. (default: true)
     --help Help info.
 
   Examples
@@ -48,6 +49,9 @@ const cli = meow(
 			},
 			ignorePackages: {
 				type: "string",
+			},
+			onlyAffected: {
+				type: "boolean",
 			},
 			dryRun: {
 				type: "boolean",
