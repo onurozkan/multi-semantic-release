@@ -1,3 +1,11 @@
+# [3.15.0](https://github.com/creaworks-labs/multi-semantic-release/compare/v3.14.2...v3.15.0) (2021-04-21)
+
+
+### Features
+
+* nx.dev workspace support added ([23d96f7](https://github.com/creaworks-labs/multi-semantic-release/commit/23d96f782fc7762090572949054e9018846b889a))
+* package input is improved to handle object manifest ([4eaf14a](https://github.com/creaworks-labs/multi-semantic-release/commit/4eaf14aea8df9e545382fb40fbef966803ff32ea))
+
 ## [3.14.2](https://github.com/qiwi/multi-semantic-release/compare/v3.14.1...v3.14.2) (2021-04-16)
 
 
