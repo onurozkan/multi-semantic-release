@@ -5,7 +5,7 @@ const resolveArguments = ({ cwd, ignorePackages, onlyAffected }) => {
 	if (fs.existsSync(path.join(cwd, "nx.json"))) {
 		console.log("found nx.json, trying to resolve project packages...");
 
-		const nxWorkspace = require("../lib/nxWorkspace");
+		const nxWorkspace = require("../lib/nxWorkspace13");
 		const packageManifests = nxWorkspace.determineNxPackages({ cwd, onlyAffected });
 
 		return {
