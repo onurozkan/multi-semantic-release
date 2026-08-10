@@ -73,12 +73,27 @@
 	"peerDependencies": {
 		"@manypkg/get-packages": "^1.1.1",
 		"@nrwl/workspace": "^11.2.6 || ^13.2.3",
+		"@nx/js": ">=16",
+		"nx": ">=16",
 		"typescript": "^4.3.5"
+	},
+	"peerDependenciesMeta": {
+		"@nrwl/workspace": {
+			"optional": true
+		},
+		"@nx/js": {
+			"optional": true
+		},
+		"nx": {
+			"optional": true
+		}
 	},
 	"devDependencies": {
 		"@commitlint/config-conventional": "^11.0.0",
 		"@manypkg/get-packages": "^1.1.1",
+		"@nx/js": "^20.5.0",
 		"@nx/workspace": "^20.5.0",
+		"nx": "^20.5.0",
 		"@semantic-release/changelog": "^5.0.1",
 		"@semantic-release/git": "^9.0.0",
 		"@semantic-release/github": "^7.2.0",
